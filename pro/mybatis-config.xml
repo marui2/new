@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 实体类,简称 -设置别名 -->
+	<typeAliases>
+		<typeAlias alias="User" type="cn.iie.icm.pojo.User" />
+		<typeAlias alias="Subject" type="cn.iie.icm.pojo.Subject" />
+		<typeAlias alias="Keyword" type="cn.iie.icm.pojo.Keyword" />
+		<typeAlias alias="Rule" type="cn.iie.icm.pojo.Rule"/>
+		<typeAlias alias="Infomation" type="cn.iie.icm.pojo.Infomation" />
+		<typeAlias alias="SubjectInsHistory" type="cn.iie.icm.pojo.SubjectInsHistory" />
+		<typeAlias alias="chartCpt" type="cn.iie.icm.pojo.chartCpt" />
+		<typeAlias alias="TaskSc" type="cn.iie.icm.pojo.TaskSc" />
+		<!-- 预制拦截实体类别名 -->
+		<typeAlias alias="Useryzlj" type="cn.iie.icm.pojo.yzlj.Useryzlj" />
+		<typeAlias alias="Subjectyzlj" type="cn.iie.icm.pojo.yzlj.Subjectyzlj" />
+		<typeAlias alias="Keywordyzlj" type="cn.iie.icm.pojo.yzlj.Keywordyzlj" />
+		<typeAlias alias="Infomationyzlj" type="cn.iie.icm.pojo.yzlj.Infomationyzlj" />
+		<typeAlias alias="SubjectInsHistoryyzlj" type="cn.iie.icm.pojo.yzlj.SubjectInsHistoryyzlj" />
+		<typeAlias alias="Websiteyzlj" type="cn.iie.icm.pojo.yzlj.Websiteyzlj" />
+		<typeAlias alias="chartCptyzlj" type="cn.iie.icm.pojo.yzlj.chartCptyzlj" />
+		<typeAlias alias="Labelyzlj" type="cn.iie.icm.pojo.yzlj.Labelyzlj" />
+		<typeAlias alias="Statisticsyzlj" type="cn.iie.icm.pojo.yzlj.Statisticsyzlj" />
+		<typeAlias alias="Navigationyzlj" type="cn.iie.icm.pojo.yzlj.Navigationyzlj" />
+		<!--YSP-->
+        <!--<typeAlias alias="GxbArtificialSuspiciousPageInfoVo"
+                   type="cn.iie.icm.pojo.ysp.GxbArtificialSuspiciousPageInfoVo"/>
+        <typeAlias alias="GxbContenttypeVo" type="cn.iie.icm.pojo.ysp.GxbContenttypeVo"/>
+        <typeAlias alias="GxbArtificialSuspiciousInfoVo" type="cn.iie.icm.pojo.ysp.GxbArtificialSuspiciousInfoVo"/>
+        <typeAlias alias="AuditInfoVo" type="cn.iie.icm.pojo.ysp.AuditInfoVo"/>
+        <typeAlias alias="QchAuditInfoVo" type="cn.iie.icm.pojo.ysp.QchAuditInfoVo"/>
+        <typeAlias alias="HandleChannelVo" type="cn.iie.icm.pojo.ysp.HandleChannelVo"/>
+        <typeAlias alias="HandleInfoVo" type="cn.iie.icm.pojo.ysp.HandleInfoVo"/>
+        <typeAlias alias="HandleSampleCodeVo" type="cn.iie.icm.pojo.ysp.HandleSampleCodeVo"/>
+        <typeAlias alias="HandleSampleVo" type="cn.iie.icm.pojo.ysp.HandleSampleVo"/>
+        <typeAlias alias="HandleTypeVo" type="cn.iie.icm.pojo.ysp.HandleTypeVo"/>
+        <typeAlias alias="GxbSuspiciousPageInfoVo" type="cn.iie.icm.pojo.ysp.GxbSuspiciousPageInfoVo"/>
+        <typeAlias alias="GxbSuspiciousInfoVo" type="cn.iie.icm.pojo.ysp.GxbSuspiciousInfoVo"/>
+        <typeAlias alias="SampleInfoVo" type="cn.iie.icm.pojo.ysp.SampleInfoVo"/>
+        <typeAlias alias="JcFeedback" type="cn.iie.icm.pojo.ysp.JcFeedback"/>
+        <typeAlias alias="SearchFeedbackInfoVo" type="cn.iie.icm.pojo.ysp.SearchFeedbackInfoVo"/>
+        <typeAlias alias="GxbEngineInfoVo" type="cn.iie.icm.pojo.ysp.GxbEngineInfoVo"/>
+        <typeAlias alias="SelectedMenuVo" type="cn.iie.icm.pojo.ysp.SelectedMenuVo"/>
+        <typeAlias alias="SuspiciousUserJudgeStatementVo" type="cn.iie.icm.pojo.ysp.SuspiciousUserJudgeStatementVo"/>
+        <typeAlias alias="ThirdSearchInfoVo" type="cn.iie.icm.pojo.ysp.ThirdSearchInfoVo"/>
+        <typeAlias alias="SuspiciousStatementVo" type="cn.iie.icm.pojo.ysp.SuspiciousStatementVo"/>
+        <typeAlias alias="YspUserVo" type="cn.iie.icm.pojo.ysp.YspUserVo"/>
+        <typeAlias alias="JcChannel" type="cn.iie.icm.pojo.ysp.JcChannel"/>
+        <typeAlias alias="JcFeedbackFileInfo" type="cn.iie.icm.pojo.ysp.JcFeedbackFileInfo"/>
+        <typeAlias alias="JcFeedbackUserInfo" type="cn.iie.icm.pojo.ysp.JcFeedbackUserInfo"/>
+        <typeAlias alias="SampleFeature" type="cn.iie.icm.pojo.ysp.SampleFeature"/>
+        <typeAlias alias="SampleEngineInfoVo" type="cn.iie.icm.pojo.ysp.SampleEngineInfoVo"/>
+        <typeAlias alias="KeywordVo" type="cn.iie.icm.pojo.ysp.KeywordVo"/>
+        <typeAlias alias="RuleYsp" type="cn.iie.icm.pojo.ysp.RuleYsp"/>
+        <typeAlias alias="SubjectYsp" type="cn.iie.icm.pojo.ysp.SubjectYsp"/>-->
+        <!--<typeAlias alias="WeiboTPVo" type="cn.iie.icm.pojo.ysp.WeiboTPVo"/>
+        <typeAlias alias="GxbWeiboBlockVo" type="cn.iie.icm.pojo.ysp.GxbWeiboBlockVo"/>-->
+        <!-- xsyj -->
+         <!--<typeAlias alias="sampleUrls" type="cn.iie.icm.pojo.xsyj.sampleUrls"/>
+         <typeAlias alias="contenttype" type="cn.iie.icm.pojo.xsyj.contenttype"/>-->
+         <!-- zhibo -->
+         <!--<typeAlias alias="Infomationzhibo" type="cn.iie.icm.pojo.zhibo.Infomation"/>
+         <typeAlias alias="Subjectzhibo" type="cn.iie.icm.pojo.zhibo.Subject"/>-->
+         <!-- weixin -->
+         <typeAlias alias="WeiXinMessage" type="cn.iie.icm.pojo.weixin.WeiXinMessage"/>
+	</typeAliases>
+	<!-- 实体接口映射资源 -->
+	<!--
+		说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml
+	-->
+	<mappers>
+		<mapper resource="cn/iie/icm/mapper/User.xml" />
+		<mapper resource="cn/iie/icm/mapper/Subject.xml" />
+		<mapper resource="cn/iie/icm/mapper/Keyword.xml" />
+		<mapper resource="cn/iie/icm/mapper/Rule.xml" />
+		<mapper resource="cn/iie/icm/mapper/Infomation.xml" />
+		<mapper resource="cn/iie/icm/mapper/SubjectInsHistory.xml" />
+		<mapper resource="cn/iie/icm/mapper/Charts.xml" />
+		<mapper resource="cn/iie/icm/mapper/Search.xml" />
+		<!--预制拦截-->
+		<mapper resource="cn/iie/icm/mapper/yzlj/Useryzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Subjectyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Keywordyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Infomationyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/SubjectInsHistoryyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Chartsyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Labelyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Websiteyzlj.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/InfomationyzljDPZS.xml" />
+		<mapper resource="cn/iie/icm/mapper/yzlj/Navigationyzlj.xml" />
+		<!-- YSP -->
+		<!--<mapper resource="cn/iie/icm/mapper/ysp/GxbArtificialSuspiciousInfo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/GxbContentType.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/AuditInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/QchAuditInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/HandleChannelVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/HandleInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/HandleTypeVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/JcFeedbackUserInfo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/HandleSampleCodeVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/SampleInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/GxbSuspiciousInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/ChooseType.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/JcFeedback.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/SearchFeedbackInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/GxbEngineInfoVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/GxbSampleSourceVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/GxbDataSourceVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/YspUserVo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/JcChannel.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/JcFeedbackFileInfo.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/KeywordVo.xml"/>-->
+        <!--<mapper resource="cn/iie/icm/mapper/ysp/WeiboTPVo.xml"/>-->
+        <!-- ZLP -->
+        <!--<mapper resource="cn/iie/icm/mapper/ysp/getSyspush.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/SubjectYSP.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/InfomationYSP.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/RulesYSP.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/UserYSP.xml"/>
+        <mapper resource="cn/iie/icm/mapper/ysp/KeyWordYSP.xml"/>-->
+		<!-- xsyj -->
+		 <!--<mapper resource="cn/iie/icm/mapper/xsyj/sampleUrls.xml"/>
+		 <mapper resource="cn/iie/icm/mapper/xsyj/contenttype.xml"/>-->
+		 <!-- zhibo -->
+		 <!--<mapper resource="cn/iie/icm/mapper/zhibo/Infomation.xml"/>
+		 <mapper resource="cn/iie/icm/mapper/zhibo/Subject.xml"/>-->
+		 <!-- weixin -->
+		 <mapper resource="cn/iie/icm/mapper/weixin/WeiXinMessage.xml"/>
+		 <!-- zhibo -->
+		 <!--<mapper resource="cn/iie/icm/mapper/zhibo/Infomation.xml"/>
+		 <mapper resource="cn/iie/icm/mapper/zhibo/Subject.xml"/>-->
+	</mappers>
+
+</configuration>  

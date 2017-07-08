@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+	
+ -->
+<mapper namespace="cn.iie.icm.dao.yzlj.INavigationDaoyzlj">
+	<insert id="saveNavigation" parameterType="Navigationyzlj">
+		insert into websitelist(id,name,url,domain,priority,image_url,address,ip,censored) 
+				values(
+				  #{id,jdbcType=INTEGER},
+				  #{name,jdbcType=VARCHAR},
+				  #{url,jdbcType=VARCHAR},
+				  #{domain,jdbcType=VARCHAR},
+				  #{priority,jdbcType=VARCHAR},
+				  #{image_url,jdbcType=VARCHAR},
+				  #{address,jdbcType=VARCHAR},
+				  #{ip,jdbcType=VARCHAR},
+				  #{censored,jdbcType=INTEGER}
+			)
+	</insert>
+	
+	<update id="updateNavigation" parameterType="Navigationyzlj">
+		update websitelist set name=#{name,jdbcType=VARCHAR},
+				  url = #{url,jdbcType=VARCHAR},
+				  domain = #{domain,jdbcType=VARCHAR},
+				  priority = #{priority,jdbcType=VARCHAR},
+				  image_url=#{image_url,jdbcType=VARCHAR},
+				  address=#{address,jdbcType=VARCHAR},
+				  ip=#{ip,jdbcType=VARCHAR},
+				  censored=#{censored,jdbcType=INTEGER}
+	   where id=#{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateNavigationByName" parameterType="Navigationyzlj">
+		update websitelist set 
+		censored=#{censored,jdbcType=INTEGER}
+	    where name=#{name,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="deleteNavigation" parameterType="int">
+		delete from websitelist where id=#{id,jdbcType=INTEGER}
+	</delete>
+	
+	 <!-- mybsits_config中配置的alias类别名,也可直接配置resultType为类路劲 -->  
+	<select id="findNavigationById" parameterType="int" resultType="Navigationyzlj">
+		select id,name,url,domain,priority,image_url,address,ip,censored from websitelist where id=#{id,jdbcType=INTEGER}
+	</select> 
+	<select id="findNavigationByName" parameterType="String" resultType="Navigationyzlj">
+		select name,image_url from websitelist where name=#{name,jdbcType=INTEGER}
+	</select> 
+	<select id="findNavigationByIds" resultMap="resultMap">
+		select id,name,url,domain,priority,address,ip,censored from websitelist where id in (
+        <foreach item="id" index="index" collection="list"  separator=","> 
+            #{id} 
+        </foreach>
+        )
+	</select>
+		<select id="findAllNavigation" resultMap="resultMap">
+		<!--select id,name,url,domain,priority,address,ip,censored from websitelist-->
+		select distinct name from websitelist order by CONVERT(name USING gbk)
+		</select>
+		<select id="findAllNavigationByCondition" parameterType="cn.iie.icm.util.yzlj.Pageyzlj" resultMap="resultMap">
+		select id,name,url,domain,priority,address,ip,censored from websitelist limit #{startIndex},#{pageSize}
+		</select>
+		<select id="getNavigationCount" resultType="INTEGER">
+		select count(*) from websitelist
+		</select>
+	
+		<resultMap id="resultMap"
+		type="Navigationyzlj">
+		<id property="id" column="id" jdbcType="VARCHAR" />
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="url" column="url" jdbcType="VARCHAR" />
+		<result property="domain" column="domain" jdbcType="VARCHAR" />
+		<result property="priority" column="priority" jdbcType="VARCHAR" />
+		<result property="image_url" column="image_url" jdbcType="VARCHAR"/>
+		<result property="address" column="address" jdbcType="VARCHAR"/>
+		<result property="ip" column="ip" jdbcType="VARCHAR"/>
+		<result property="censored" column="censored" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	<!-- 信息查询 -->
+	<sql id="selectSql">
+		select id,name,url,domain,priority,address,ip,censored from websitelist where 1=1 
+				<include refid="selectWhere" /> 
+	</sql>
+	
+	<!-- 查询条件 -->
+	<sql id="selectWhere">
+		<if test="condition.ids !=null">
+			AND id in (
+			<foreach  item="id" index="index" collection="condition.ids"  separator=",">
+				#{id}
+			</foreach>
+			)
+		</if>
+	
+	</sql>
+	
+</mapper>

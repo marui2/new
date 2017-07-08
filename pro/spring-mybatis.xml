@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+                        http://www.springframework.org/schema/context  
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd  
+                        http://www.springframework.org/schema/mvc  
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	<!-- 自动扫描 -->
+	<context:component-scan base-package="cn.iie.icm" />
+	<!-- 引入配置文件 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="${initialSize}"></property>
+		<!-- 连接池最大数量 -->
+		<property name="maxActive" value="${maxActive}"></property>
+		<!-- 连接池最大空闲 -->
+		<property name="maxIdle" value="${maxIdle}"></property>
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${minIdle}"></property>
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="${maxWait}"></property>
+	</bean>
+	
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${test.driver}" />
+		<property name="url" value="${test.url}" />
+		<property name="username" value="${test.username}" />
+		<property name="password" value="${test.password}" />
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="${initialSize}"></property>
+		<!-- 连接池最大数量 -->
+		<property name="maxActive" value="${maxActive}"></property>
+		<!-- 连接池最大空闲 -->
+		<property name="maxIdle" value="${maxIdle}"></property>
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${minIdle}"></property>
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="${maxWait}"></property>
+	</bean>
+	
+	<bean id="dataSource3" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	   <property name="driverClassName" value="${yzlj.driver}" />
+	   <property name="url" value="${yzlj.url}" />
+	   <property name="username" value="${yzlj.username}" />
+	   <property name="password" value="${yzlj.password}" />
+	   <!-- 初始化连接大小 -->
+	   <property name="initialSize" value="${initialSize}"></property>
+	   <!-- 连接池最大数量 -->
+	   <property name="maxActive" value="${maxActive}"></property>
+	   <!-- 连接池最大空闲 -->
+	   <property name="maxIdle" value="${maxIdle}"></property>
+	   <!-- 连接池最小空闲 -->
+	   <property name="minIdle" value="${minIdle}"></property>
+	   <!-- 获取连接最大等待时间 -->
+	   <property name="maxWait" value="${maxWait}"></property>
+	</bean>
+	 <bean id="dataSource4" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${test_hib.driver}"/>
+        <property name="url" value="${test_hib.url}"/>
+        <property name="username" value="${test_hib.username}"/>
+        <property name="password" value="${test_hib.password}"/>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${initialSize}"></property>
+        <!-- 连接池最大数量 -->
+        <property name="maxActive" value="${maxActive}"></property>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="${maxIdle}"></property>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${minIdle}"></property>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${maxWait}"></property>
+    </bean>
+	<bean id="dataSource5" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	   <property name="driverClassName" value="${xsyj.driver}" />
+	   <property name="url" value="${xsyj.url}" />
+	   <property name="username" value="${xsyj.username}" />
+	   <property name="password" value="${xsyj.password}" />
+	   <!-- 初始化连接大小 -->
+	   <property name="initialSize" value="${initialSize}"></property>
+	   <!-- 连接池最大数量 -->
+	   <property name="maxActive" value="${maxActive}"></property>
+	   <!-- 连接池最大空闲 -->
+	   <property name="maxIdle" value="${maxIdle}"></property>
+	   <!-- 连接池最小空闲 -->
+	   <property name="minIdle" value="${minIdle}"></property>
+	   <!-- 获取连接最大等待时间 -->
+	   <property name="maxWait" value="${maxWait}"></property>
+	</bean>
+	<bean id="dataSource6" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	   <property name="driverClassName" value="${zhibo.driver}" />
+	   <property name="url" value="${zhibo.url}" />
+	   <property name="username" value="${zhibo.username}" />
+	   <property name="password" value="${zhibo.password}" />
+	   <!-- 初始化连接大小 -->
+	   <property name="initialSize" value="${initialSize}"></property>
+	   <!-- 连接池最大数量 -->
+	   <property name="maxActive" value="${maxActive}"></property>
+	   <!-- 连接池最大空闲 -->
+	   <property name="maxIdle" value="${maxIdle}"></property>
+	   <!-- 连接池最小空闲 -->
+	   <property name="minIdle" value="${minIdle}"></property>
+	   <!-- 获取连接最大等待时间 -->
+	   <property name="maxWait" value="${maxWait}"></property>
+	</bean>
+
+
+	<!--<bean id="dataSource7" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${weibo.driver}" />
+		<property name="url" value="${weibo.url}" />
+		<property name="username" value="${weibo.username}" />
+		<property name="password" value="${weibo.password}" />-->
+		<!-- 初始化连接大小 -->
+		<!--<property name="initialSize" value="${initialSize}"></property>-->
+		<!-- 连接池最大数量 -->
+		<!--<property name="maxActive" value="${maxActive}"></property>-->
+		<!-- 连接池最大空闲 -->
+		<!--<property name="maxIdle" value="${maxIdle}"></property>-->
+		<!-- 连接池最小空闲 -->
+		<!-- <property name="minIdle" value="${minIdle}"></property>-->
+		<!-- 获取连接最大等待时间 -->
+		<!--<property name="maxWait" value="${maxWait}"></property>
+	</bean>-->
+
+    <bean id="multipleDataSource" class="cn.iie.icm.util.MultipleDataSource">
+        <property name="defaultTargetDataSource" ref="dataSource"/>
+        <property name="targetDataSources">
+            <map>
+                <entry key="dataSource" value-ref="dataSource"/>
+                <entry key="dataSource2" value-ref="dataSource2"/>
+                <entry key="dataSource3" value-ref="dataSource3"/>
+                <entry key="dataSource4" value-ref="dataSource4"/>
+                <entry key="dataSource5" value-ref="dataSource5"/>
+                <entry key="dataSource6" value-ref="dataSource6"/>
+				<!--<entry key="dataSource7" value-ref="dataSource7"/>-->
+            </map>
+        </property>
+    </bean>
+    
+	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="multipleDataSource" />
+		<!-- 自动扫描mapping.xml文件 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+	</bean>
+
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.iie.icm.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="multipleDataSource" />
+	</bean>
+
+</beans>
